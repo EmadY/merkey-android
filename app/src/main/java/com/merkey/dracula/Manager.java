@@ -23,6 +23,8 @@ public class Manager {
     static final public String BACKEND_REGISTER = "TBD";
     static final public String BACKEND_REQUEST_DRONE = "TBD";
     static final public String BACKEND_CHECK_DRONE_FLYING = "TBD";
+    static final public String BACKEND_GET_USER_DATA = "TBD";
+    static final public String BACKEND_DELIVER_TO = "TBD";
 
     ArrayList<String> web_results;
     boolean web_request_in_progress = false;
