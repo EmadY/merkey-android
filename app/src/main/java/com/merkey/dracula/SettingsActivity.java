@@ -1,7 +1,15 @@
 package com.merkey.dracula;
 
+import android.content.Context;
+import android.content.SharedPreferences;
+import android.content.res.TypedArray;
+import android.preference.Preference;
+import android.preference.PreferenceManager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.AttributeSet;
+import android.view.View;
+import android.widget.SeekBar;
 
 /*
  * This will be used for settings throught the app. There is a way to maintain settings, check it out.
@@ -24,5 +32,13 @@ public class SettingsActivity extends AppCompatActivity {
         setContentView(R.layout.activity_settings);
 
         manager = Manager.getInstance();
+        SeekBar mSeekBar;
+        SharedPreferences pre = getSharedPreferences("pre_name", Context.MODE_PRIVATE);
+        pre.edit().putInt("KEY_PROGRESS_VALUE", 3).commit();
+        int progress = pre.getInt("KEY_PROGRESS_VALUE",0); // 0: default value
+        mSeekBar = (SeekBar) findViewById(R.id.seekbar);
+        mSeekBar.setProgress(progress);
+
+
     }
 }

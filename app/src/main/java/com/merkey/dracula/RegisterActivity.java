@@ -4,6 +4,11 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
+import android.widget.Toast;
+
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 /*
  * This activity is the launcher activity of the app. It tests if the device is registered, and allows
@@ -46,7 +51,63 @@ public class RegisterActivity extends AppCompatActivity {
             // then send to manager.BACKEND_REGISTER url.
             // If everything is successful, redirect. if not successful print the error message.
             // check backed documentation for this.
+
+
+            EditText nameEditText = (EditText) findViewById(R.id.nameText);
+            String sNameText = nameEditText.getText().toString();
+            if (sNameText.matches("")) {
+                Toast.makeText(RegisterActivity.this, "You did not enter a name", Toast.LENGTH_SHORT).show();
+                return;
+            }
+
+            EditText phoneEditText = (EditText) findViewById(R.id.phoneText);
+            String sphoneText = phoneEditText.getText().toString();
+            if (sphoneText.matches("") && isValidMobile(sphoneText)) {
+                Toast.makeText(RegisterActivity.this, "You did not enter a valid phone number", Toast.LENGTH_SHORT).show();
+                return;
+            }
+
+            EditText emailEditText = (EditText) findViewById(R.id.emailText);
+            String semailText = emailEditText.getText().toString();
+            if (semailText.matches("") && isValidMail(semailText)) {
+                Toast.makeText(RegisterActivity.this, "You did not enter a valid email", Toast.LENGTH_SHORT).show();
+                return;
+            }
+
+
+
+
+
         }
     };
 
+
+    private boolean isValidMail(String email2)
+    {
+        boolean check;
+        Pattern p;
+        Matcher m;
+
+        String EMAIL_STRING = "^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]+)*@"
+                + "[A-Za-z0-9-]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$";
+
+        p = Pattern.compile(EMAIL_STRING);
+
+        m = p.matcher(email2);
+        check = m.matches();
+
+
+        return check;
+
+
+    }
+
+    private boolean isValidMobile(String phone)
+    {
+        return android.util.Patterns.PHONE.matcher(phone).matches();
+    }
+
+
 }
+
+
