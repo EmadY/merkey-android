@@ -25,6 +25,7 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.merkey.dracula.MainActivity" />
         </activity>
+        <activity android:name=".DeliveryActivity"></activity>
     </application>
 
 </manifest>
