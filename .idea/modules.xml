@@ -4,6 +4,7 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/DrAcuLA.iml" filepath="$PROJECT_DIR$/DrAcuLA.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/merkey-android.iml" filepath="$PROJECT_DIR$/merkey-android.iml" />
     </modules>
   </component>
 </project>
